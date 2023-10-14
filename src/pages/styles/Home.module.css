@@ -1,0 +1,7 @@
+.main {
+    background-image: url("../assets/Terra-Vault-Logo-removebg-preview.png"),  url("../assets/Terra-vault-bg.png");
+    background-size: 250px, cover;
+    background-position: top left, center center;
+    height: 100vh;
+    background-repeat: no-repeat;
+}

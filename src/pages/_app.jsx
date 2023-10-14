@@ -1,12 +1,21 @@
+import dynamic from "next/dynamic";
+import "./styles/globals.css";
+import Layout from "./layout";
 
-import '../styles/globals.css'
-import { SessionProvider } from "next-auth/react";
+const WalletConnectionProvider = dynamic(
+  () => import("./context/WalletConnectionProvider"),
+  {
+    ssr: false,
+  }
+);
 
 const App = ({ Component, pageProps }) => {
   return (
-    <SessionProvider session={pageProps.session}>
-      <Component {...pageProps} />
-    </SessionProvider>
+    <WalletConnectionProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </WalletConnectionProvider>
   );
 };
 
