@@ -15,7 +15,7 @@ function Label({ id, children }) {
   )
 }
 
-export function TextField({ label, type = 'text', className, ...props }) {
+export default function TextField({ label, type = 'text', className, ...props }) {
   let id = useId()
 
   return (

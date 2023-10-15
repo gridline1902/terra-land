@@ -70,7 +70,7 @@ const testimonials = [
   ],
 ];
 
-export function Testimonials() {
+export default function Testimonials() {
   return (
     <section
       id="testimonials"

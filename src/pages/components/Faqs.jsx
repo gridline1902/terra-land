@@ -53,7 +53,7 @@ const faqs = [
   ],
 ];
 
-export function Faqs() {
+export default function Faqs() {
   return (
     <section
       id="faq"

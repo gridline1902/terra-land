@@ -4,7 +4,7 @@ import { NavLink } from "./NavLink";
 
 
 
-export function Hero() {
+export default function Hero() {
 
 
 

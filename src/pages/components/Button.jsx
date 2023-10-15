@@ -24,7 +24,7 @@ const variantStyles = {
   },
 }
 
-export function Button({ variant, color, className, ...props }) {
+export default function Button({ variant, color, className, ...props }) {
   variant = variant ?? 'solid'
   color = color ?? 'slate'
 
