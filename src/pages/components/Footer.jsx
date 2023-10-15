@@ -10,7 +10,7 @@ export function Footer() {
       <Container>
         <div className="py-16">
         <div style={{ width: '200px', height: 'auto', margin: '0 auto' }}>
-            <Image src={bg} layout="responsive" width={200} height={100} />
+            <Image src={bg} width={200} height={100} alt="logo" />
           </div>
           <nav className="mt-10 text-sm" aria-label="quick links">
             <div className="-my-1 flex justify-center gap-x-6">
@@ -47,8 +47,8 @@ export function Footer() {
               </svg>
             </Link>
           </div>
-          <p className="text-slate-50 mt-6 text-sm text-slate-500 sm:mt-0">
-            Copyright &copy; {new Date().getFullYear()} TaxPal. All rights
+          <p className="text-slate-50 mt-6 text-sm sm:mt-0">
+            Copyright &copy; {new Date().getFullYear()} Terra Vault. All rights
             reserved.
           </p>
         </div>

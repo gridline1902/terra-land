@@ -1,4 +1,6 @@
 import * as React from "react";
+import Image from "next/image";
+import AdbIcon from '@mui/icons-material/Adb';
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -13,7 +15,6 @@ require("@solana/wallet-adapter-react-ui/styles.css");
 const pages = ["Home", "Features", "Testimonials", "FAQs"];
 
 function NavAppBar({ connected, publicKey }) {
-
   return (
     <AppBar position="static" sx={{ background: "#2f3030", opacity: "0.9" }}>
       <Container maxWidth="xl">
