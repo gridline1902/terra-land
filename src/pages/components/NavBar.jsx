@@ -1,6 +1,4 @@
-import * as React from "react";
-import Image from "next/image";
-import AdbIcon from '@mui/icons-material/Adb';
+import * as React from "react";;
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -9,7 +7,6 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { truncate } from "../utils/string";
-import bg from "../assets/Terra-Vault-Logo-removebg-preview.png";
 require("@solana/wallet-adapter-react-ui/styles.css");
 
 const pages = ["Home", "Features", "Testimonials", "FAQs"];
