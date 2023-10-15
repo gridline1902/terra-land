@@ -3,7 +3,7 @@ import "../styles/globals.css";
 import Layout from "./layout";
 
 const WalletConnectionProvider = dynamic(
-  () => import("./context/WalletConnectionProvider"),
+  () => import("../context/WalletConnectionProvider"),
   {
     ssr: false,
   }
