@@ -1,5 +1,5 @@
 "use client";
-import DisplayFormDataTable from "../components/DisplayFormDataTable";
+import DisplayFormDataTable from "../../components/DisplayFormDataTable";
 
 const dataView = () => {
   return (

@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import "./styles/globals.css";
+import "../styles/globals.css";
 import Layout from "./layout";
 
 const WalletConnectionProvider = dynamic(

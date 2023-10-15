@@ -1,9 +1,9 @@
 
-import { Faqs } from './components/Faqs'
-import { Footer } from './components/Footer'
-import { Hero } from './components/Hero'
-import { PrimaryFeatures } from './components/PrimaryFeatures'
-import { Testimonials } from './components/Testimonials'
+import { Faqs } from '../components/Faqs'
+import { Footer } from '../components/Footer'
+import { Hero } from '../components/Hero'
+import { PrimaryFeatures } from '../components/PrimaryFeatures'
+import { Testimonials } from '../components/Testimonials'
 
 
 const Home = () => {
