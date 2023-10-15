@@ -4,7 +4,7 @@ import { Container } from './Container'
 import bg from "../assets/Terra-Vault-Logo-removebg-preview.png"
 import { NavLink } from './NavLink'
 
-export default function Footer() {
+export function Footer() {
   return (
     <footer className="bg-green-700">
       <Container>
