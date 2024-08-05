@@ -6,7 +6,6 @@ import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
 
 import { Container } from './Container'
-import backgroundImage from '../assets/Terra-vault-bg.png'
 import wallet from '../assets/screenshots/login wallet.png'
 import hash from '../assets/screenshots/hash file.png'
 

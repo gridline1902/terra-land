@@ -1,12 +1,41 @@
 import { Container } from "./Container";
 import { Button } from "./Button";
-import { NavLink } from "./NavLink";
-
-
+import { useWallet } from "@solana/wallet-adapter-react";
+import { useRouter } from "next/router";
+import { Box, Snackbar } from "@mui/material";
+import { useState } from "react";
 
 export function Hero() {
+  const [snackbarState, setSnackbarState] = useState({
+    open: false,
+    vertical: "bottom",
+    horizontal: "center",
+    message: ""
+  });
+  const { vertical, horizontal, open, message } = snackbarState;
 
 
+  const { connected, connect } = useWallet();
+  const router = useRouter();
+
+  const handleSnackbarClose = () => {
+    setSnackbarState({ ...snackbarState, open: false });
+  };
+
+  const handleConnectClick = () => {
+    if (!connected) {
+      connect().catch(() => {
+        console.error("Wallet connection failed");
+        setSnackbarState({
+          ...snackbarState,
+          open: true,
+          message: "Wallet connection failed"
+        });
+      });
+    } else {
+      router.push("/dashboard");
+    }
+  };
 
   return (
     <div className="bg-green-700 min-h-screen flex flex-col justify-center items-center">
@@ -32,9 +61,16 @@ export function Hero() {
           land deeds.
         </p>
         <div className="mt-6">
-          <NavLink href="dashboard">
-            <Button>Get Started</Button>
-          </NavLink>
+          <Button onClick={handleConnectClick}>Get Started</Button>
+          <Box sx={{ width: 500 }}>
+          <Snackbar
+              anchorOrigin={{ vertical, horizontal }}
+              open={open}
+              onClose={handleSnackbarClose}
+              message={message}
+              key={vertical + horizontal}
+            />
+          </Box>
         </div>
       </Container>
     </div>
