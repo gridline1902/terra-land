@@ -30,14 +30,15 @@ type Variant = 'solid' | 'outline'
 type Color = 'slate' | 'blue' | 'white'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: string
-  color?: string
+  variant?: Variant
+  color?: Color
   className?: string
   href?: string
   linkProps?: Omit<LinkProps, 'href'> // Ensure LinkProps are included but omit href
 }
 
 export function Button({ variant = 'solid', color = 'slate', className, href, linkProps, ...props }: ButtonProps) {
+  className = clsx(baseStyles[variant], variantStyles, color, className)
 
   return href ? (
     <Link href={href} {...linkProps} />
