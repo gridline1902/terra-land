@@ -1,4 +1,4 @@
-import NavAppBar from "../components/NavBar";
+import NavAppBar from "../components/layout/NavBar";
 import { useWallet } from '@solana/wallet-adapter-react'
 
 

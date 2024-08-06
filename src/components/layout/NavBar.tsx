@@ -10,10 +10,11 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
-import { truncate } from "../utils/string";
+import { truncate } from "../../utils/string";
+import Link from "next/link";
 require("@solana/wallet-adapter-react-ui/styles.css");
 
-const pages = ["Home", "Features", "Testimonials", "FAQs"];
+const sections = ["Home", "Features", "Testimonials", "FAQ"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function NavAppBar({ connected, publicKey }) {
@@ -86,10 +87,12 @@ function NavAppBar({ connected, publicKey }) {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
+              {sections.map((page) => (
+                <Link key={page} href={`#${page.toLowerCase()}`} passHref>
+                  <MenuItem onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{page}</Typography>
+                  </MenuItem>
+                </Link>
               ))}
             </Menu>
           </Box>
@@ -113,7 +116,7 @@ function NavAppBar({ connected, publicKey }) {
             Terra Vault
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
+            {sections.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}

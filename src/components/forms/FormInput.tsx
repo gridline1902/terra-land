@@ -1,6 +1,20 @@
-import { Button } from "./Button";
+import { Button } from "../common/Button";
 
-const FormInput = ({ handleChange, formInputData, handleSubmit  }) => {
+interface FormInputData {
+  fullName: string;
+  serialNumber: string;
+  nationalIdNumber: string;
+  latitude: string;
+  longitude: string;
+}
+
+interface FormInputProps {
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  formInputData: FormInputData;
+  handleSubmit: () => void;
+}
+
+const FormInput: React.FC<FormInputProps> = ({ handleChange, formInputData, handleSubmit }) => {
   return (
     <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
       <div className="mb-4">
@@ -49,7 +63,7 @@ const FormInput = ({ handleChange, formInputData, handleSubmit  }) => {
           id="NationalIdentityNumber"
           type="text"
           onChange={handleChange}
-          value={formInputData.identityNumber}
+          value={formInputData.nationalIdNumber}
           name="NationalIdentityNumber"
           placeholder="NIN"
         />

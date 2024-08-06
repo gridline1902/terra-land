@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Container } from './Container'
-import bg from "../assets/Terra-Vault-Logo-removebg-preview.png"
-import { NavLink } from './NavLink'
+import { Container } from '../common/Container'
+import bg from "../../assets/Terra-Vault-Logo-removebg-preview.png"
+import { NavLink } from '../navigation/NavLink'
 
 export function Footer() {
   return (
@@ -15,7 +15,7 @@ export function Footer() {
           <nav className="mt-10 text-sm" aria-label="quick links">
             <div className="-my-1 flex justify-center gap-x-6">
               <NavLink href="#features">Features</NavLink>
-              <NavLink href="#testimonials" className="text-slate-50">Testimonials</NavLink>
+              <NavLink href="#testimonials">Testimonials</NavLink>
               <NavLink href="#faq">FAQs</NavLink>
             </div>
           </nav>

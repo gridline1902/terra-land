@@ -1,5 +1,5 @@
-import { Container } from "./Container";
-import { Button } from "./Button";
+import { Container } from "../common/Container";
+import { Button } from "../common/Button";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { useRouter } from "next/router";
 import { Box, Snackbar } from "@mui/material";
@@ -25,11 +25,10 @@ export function Hero() {
   const handleConnectClick = () => {
     if (!connected) {
       connect().catch(() => {
-        console.error("Wallet connection failed");
         setSnackbarState({
           ...snackbarState,
           open: true,
-          message: "Wallet connection failed"
+          message: "Please connect your wallet"
         });
       });
     } else {

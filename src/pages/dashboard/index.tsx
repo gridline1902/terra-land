@@ -1,11 +1,11 @@
 "use client";
-import DisplayFormDataTable from "../../components/DisplayFormDataTable";
+import DataTableWithForm from "../../components/forms/DataTableWithForm";
 
 const dataView = () => {
   return (
     <main>
       <div style={{ height: "100%", width: "100%" }}>
-        <DisplayFormDataTable />
+        <DataTableWithForm />
       </div>
     </main>
   );

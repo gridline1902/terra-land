@@ -1,22 +1,23 @@
+import { SessionProvider } from "next-auth/react";
 import {
   ConnectionProvider,
   WalletProvider,
 } from "@solana/wallet-adapter-react";
+import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
 import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
-import { SolflareWalletAdapter } from "@solana/wallet-adapter-wallets";
 import { useMemo } from "react";
-
-const connection =
-  "https://white-proportionate-pool.solana-devnet.quiknode.pro/129778ff9c472513c2ee7c74ff4e4828b2517b64/";
+import { clusterApiUrl } from "@solana/web3.js";
+require("@solana/wallet-adapter-react-ui/styles.css");
 
 const WalletConnectionProvider = ({ children }) => {
-  const endpoint = useMemo(() => connection, []);
+  const network = WalletAdapterNetwork.Devnet;
+  const endpoint = useMemo(() => clusterApiUrl(network), [network]);
 
-  const wallets = useMemo(() => [new SolflareWalletAdapter()], []);
+  const wallets = useMemo(() => [], []);
 
   return (
     <ConnectionProvider endpoint={endpoint}>
-      <WalletProvider wallets={wallets}>
+      <WalletProvider wallets={wallets} autoConnect>
         <WalletModalProvider>{children}</WalletModalProvider>
       </WalletProvider>
     </ConnectionProvider>

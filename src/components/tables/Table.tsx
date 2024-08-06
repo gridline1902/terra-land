@@ -1,7 +1,21 @@
 "use client";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import React from 'react';
 
-const dataView = ({ tableData }) => {
+interface TableData {
+  fullName: string;
+  serialNumber: string;
+  NationalIdentityNumber: string;
+  fileHash: string;
+  latitude: number;
+  longitude: number;
+}
+
+interface DataViewProps {
+  tableData: TableData[];
+}
+
+const Table: React.FC<DataViewProps> = ({ tableData }) => {
   const rows = tableData.map((data, index) => ({
     id: index,
     col1: index + 1,
@@ -13,7 +27,7 @@ const dataView = ({ tableData }) => {
     col7: data.longitude,
   }));
 
-  const columns = [
+  const columns: GridColDef[] = [
     { field: "col1", headerName: "#", width: 225 },
     { field: "col2", headerName: "Full Name", width: 225 },
     { field: "col3", headerName: "Serial Number", width: 225 },
@@ -21,7 +35,6 @@ const dataView = ({ tableData }) => {
     { field: "col5", headerName: "Crypto Hash", width: 225 },
     { field: "col6", headerName: "Latitude", width: 225 },
     { field: "col7", headerName: "Longitude", width: 225 },
-
   ];
 
   return (
@@ -33,4 +46,4 @@ const dataView = ({ tableData }) => {
   );
 };
 
-export default dataView;
+export default Table;

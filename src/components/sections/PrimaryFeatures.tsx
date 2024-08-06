@@ -5,9 +5,9 @@ import Image from 'next/image'
 import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
 
-import { Container } from './Container'
-import wallet from '../assets/screenshots/login wallet.png'
-import hash from '../assets/screenshots/hash file.png'
+import { Container } from '../common/Container'
+import wallet from '../../assets/screenshots/login wallet.png'
+import hash from '../../assets/screenshots/hash file.png'
 
 const features = [
   {
@@ -30,7 +30,7 @@ export function PrimaryFeatures() {
   useEffect(() => {
     let lgMediaQuery = window.matchMedia('(min-width: 1024px)')
 
-    function onMediaQueryChange({ matches }) {
+    function onMediaQueryChange({ matches }: any) {
       setTabOrientation(matches ? 'vertical' : 'horizontal')
     }
 

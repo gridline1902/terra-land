@@ -1,4 +1,5 @@
-import Link from 'next/link'
+import React from 'react'
+import Link, { LinkProps } from 'next/link'
 import clsx from 'clsx'
 
 const baseStyles = {
@@ -24,19 +25,24 @@ const variantStyles = {
   },
 }
 
-export function Button({ variant, color, className, ...props }) {
-  variant = variant ?? 'solid'
-  color = color ?? 'slate'
+// Define the types for the Button component props
+type Variant = 'solid' | 'outline'
+type Color = 'slate' | 'blue' | 'white'
 
-  className = clsx(
-    baseStyles[variant],
-    variantStyles[variant][color],
-    className,
-  )
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: Variant
+  color?: Color
+  className?: string
+  href?: string
+  linkProps?: Omit<LinkProps, 'href'> // Ensure LinkProps are included but omit href
+}
 
-  return typeof props.href === 'undefined' ? (
-    <button className={className} {...props} />
+export function Button({ variant = 'solid', color = 'slate', className, href, linkProps, ...props }: ButtonProps) {
+  className = clsx(baseStyles[variant], variantStyles[variant][color], className)
+
+  return href ? (
+    <Link href={href} {...linkProps} />
   ) : (
-    <Link className={className} {...props} />
+    <button className={className} {...props} />
   )
 }
