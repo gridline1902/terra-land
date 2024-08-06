@@ -17,14 +17,20 @@ require("@solana/wallet-adapter-react-ui/styles.css");
 const sections = ["Home", "Features", "Testimonials", "FAQ"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-function NavAppBar({ connected, publicKey }) {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+interface NavAppBarProps {
+  connected: boolean;
+  publicKey: any | null;
+}
 
-  const handleOpenNavMenu = (event) => {
+function NavAppBar({ connected, publicKey }: Readonly<NavAppBarProps>) {
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
+
+  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
 

@@ -5,15 +5,23 @@ import { useRouter } from "next/router";
 import { Box, Snackbar } from "@mui/material";
 import { useState } from "react";
 
+
+interface SnackbarState {
+  open: boolean;
+  vertical: 'top' | 'bottom';
+  horizontal: 'left' | 'center' | 'right';
+  message: string;
+}
+
 export function Hero() {
-  const [snackbarState, setSnackbarState] = useState({
+  const [snackbarState, setSnackbarState] = useState<SnackbarState>({
     open: false,
-    vertical: "bottom",
-    horizontal: "center",
+    vertical: 'bottom',
+    horizontal: 'center',
     message: ""
   });
-  const { vertical, horizontal, open, message } = snackbarState;
 
+  const { vertical, horizontal, open, message } = snackbarState;
 
   const { connected, connect } = useWallet();
   const router = useRouter();
