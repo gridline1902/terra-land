@@ -28,7 +28,7 @@ export function Hero() {
         setSnackbarState({
           ...snackbarState,
           open: true,
-          message: "Please connect your wallet"
+          message: "Please connect your wallet...."
         });
       });
     } else {
