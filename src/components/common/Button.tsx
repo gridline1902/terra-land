@@ -38,7 +38,6 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export function Button({ variant = 'solid', color = 'slate', className, href, linkProps, ...props }: ButtonProps) {
-  className = clsx(baseStyles[variant], variantStyles[variant][color], className)
 
   return href ? (
     <Link href={href} {...linkProps} />
