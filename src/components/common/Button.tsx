@@ -30,8 +30,8 @@ type Variant = 'solid' | 'outline'
 type Color = 'slate' | 'blue' | 'white'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: Variant
-  color?: Color
+  variant?: string
+  color?: string
   className?: string
   href?: string
   linkProps?: Omit<LinkProps, 'href'> // Ensure LinkProps are included but omit href
