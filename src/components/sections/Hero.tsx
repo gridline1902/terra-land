@@ -1,9 +1,9 @@
 import { Container } from "../common/Container";
-import { Button } from "../common/Button";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { useRouter } from "next/router";
 import { Box, Snackbar } from "@mui/material";
 import { useState } from "react";
+import { Button } from "../common/Button";
 
 
 interface SnackbarState {
@@ -70,7 +70,7 @@ export function Hero() {
         <div className="mt-6">
           <Button onClick={handleConnectClick}>Get Started</Button>
           <Box sx={{ width: 500 }}>
-          <Snackbar
+            <Snackbar
               anchorOrigin={{ vertical, horizontal }}
               open={open}
               onClose={handleSnackbarClose}

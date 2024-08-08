@@ -123,13 +123,11 @@ function NavAppBar({ connected, publicKey }: Readonly<NavAppBarProps>) {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {sections.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
+              <Link key={page} href={`/#${page.toLowerCase()}`} passHref>
+                <MenuItem onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page}</Typography>
+                </MenuItem>
+              </Link>
             ))}
           </Box>
 

@@ -8,10 +8,11 @@ interface NavLinkProps {
 
 export function NavLink({ href, children }: Readonly<NavLinkProps>) {
   return (
-    <Link href={href} passHref>
-      <a className="inline-block rounded-lg px-2 py-1 text-sm text-slate-50 hover:text-slate-900">
-        {children}
-      </a>
+    <Link
+      className="inline-block rounded-lg px-2 py-1 text-sm text-slate-50 hover:text-slate-900"
+      href={href}
+    >
+      {children}
     </Link>
   )
 }

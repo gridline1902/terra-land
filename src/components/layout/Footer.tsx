@@ -9,7 +9,7 @@ export function Footer() {
     <footer className="bg-green-700">
       <Container>
         <div className="py-16">
-        <div style={{ width: '200px', height: 'auto', margin: '0 auto' }}>
+          <div style={{ width: '200px', height: 'auto', margin: '0 auto' }}>
             <Image src={bg} width={200} height={100} alt="logo" />
           </div>
           <nav className="mt-10 text-sm" aria-label="quick links">
