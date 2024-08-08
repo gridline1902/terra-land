@@ -44,10 +44,11 @@ export function Hero() {
     }
   };
 
+
   return (
     <div className="bg-green-700 min-h-screen flex flex-col justify-center items-center">
       <Container className="pb-16 pt-20 text-center lg:pt-32">
-        <h1 className="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-slate-50 sm:text-7xl">
+        <h1 className="mx-auto max-w-4xl text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-slate-50">
           Registering your land{" "}
           <span className="relative whitespace-nowrap text-blue-600">
             <svg
@@ -69,7 +70,7 @@ export function Hero() {
         </p>
         <div className="mt-6">
           <Button onClick={handleConnectClick}>Get Started</Button>
-          <Box sx={{ width: 500 }}>
+          <Box sx={{ width: '100%', maxWidth: 500 }}>
             <Snackbar
               anchorOrigin={{ vertical, horizontal }}
               open={open}
