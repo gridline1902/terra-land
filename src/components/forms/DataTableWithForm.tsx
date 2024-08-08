@@ -6,9 +6,18 @@ import Table from "../tables/Table";
 import Modal from "../common/Modal";
 import FormInput from "../forms/FormInput";
 
+interface Document {
+  id: number;
+  created_at: string;
+  full_name: string | null;
+  serial_number: string | null;
+  national_id_number: string | null;
+  latitudinal_location: string | null;
+  longitudinal_location: string | null;
+}
 
 export default function DataTableWithForm() {
-  const [documents, setDocuments] = useState([]);
+  const [documents, setDocuments] = useState<Document[]>([]);
   const [formInputData, setFormInputData] = useState({
     full_name: "",
     serial_number: "",

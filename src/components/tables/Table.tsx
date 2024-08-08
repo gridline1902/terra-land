@@ -1,21 +1,21 @@
 "use client";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
-import React from 'react';
 
-interface TableData {
-  id: string,
-  full_name: string;
-  serial_number: string;
-  national_id_number: string;
-  latitudinal_location: string;
-  longitudinal_location: string;
+interface Document {
+  id: number;
+  created_at: string;
+  full_name: string | null;
+  serial_number: string | null;
+  national_id_number: string | null;
+  latitudinal_location: string | null;
+  longitudinal_location: string | null;
 }
 
-interface DataViewProps {
-  tableData: TableData[];
+interface TableProps {
+  tableData: Document[];
 }
 
-const Table: React.FC<DataViewProps> = ({ tableData }) => {
+const Table: React.FC<TableProps> = ({ tableData }) => {
   const rows = tableData.map((data, index) => ({
     id: data.id,
     col1: index + 1,
