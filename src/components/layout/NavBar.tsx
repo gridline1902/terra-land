@@ -94,7 +94,7 @@ function NavAppBar({ connected, publicKey }: Readonly<NavAppBarProps>) {
               }}
             >
               {sections.map((page) => (
-                <Link key={page} href={`#${page.toLowerCase()}`} passHref>
+                <Link key={page} href={`/#${page.toLowerCase()}`} passHref>
                   <MenuItem onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">{page}</Typography>
                   </MenuItem>
