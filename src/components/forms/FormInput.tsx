@@ -1,4 +1,3 @@
-import { Button } from "../common/Button";
 
 interface FormInputData {
   full_name: string;
@@ -12,13 +11,15 @@ interface FormInputProps {
   formInputData: FormInputData;
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  getLocation: () => void;
 }
 
 const FormInput: React.FC<FormInputProps> = (
   {
     formInputData,
     handleChange,
-    handleSubmit
+    handleSubmit,
+    getLocation
   }
 ) => {
   return (
@@ -75,11 +76,11 @@ const FormInput: React.FC<FormInputProps> = (
             placeholder="NIN"
           />
         </div>
-        <div className="mb-4 flex">
-          <div className="w-1/2 mr-2">
+        <div className="flex gap-8 mb-4">
+          <div>
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="latitude"
+              htmlFor="latitudinal_location"
             >
               Latitude
             </label>
@@ -90,13 +91,14 @@ const FormInput: React.FC<FormInputProps> = (
               onChange={handleChange}
               value={formInputData.latitudinal_location}
               name="latitudinal_location"
-              placeholder="e.g., 40.7128"
+              placeholder="Latitude"
+              readOnly
             />
           </div>
-          <div className="w-1/2 ml-2">
+          <div>
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="longitude"
+              htmlFor="longitudinal_location"
             >
               Longitude
             </label>
@@ -107,8 +109,23 @@ const FormInput: React.FC<FormInputProps> = (
               onChange={handleChange}
               value={formInputData.longitudinal_location}
               name="longitudinal_location"
-              placeholder="e.g., -74.0060"
+              placeholder="Longitude"
+              readOnly
             />
+          </div>
+
+        </div>
+        <div className="mb-4">
+          <div className="flex justify-between">
+            <h1 className="block text-gray-700 text-sm font-bold mb-2">Geolocation</h1>
+            <button
+              type="button"
+              className="bg-green-500 hover:bg-green-700 px-2 py-1 text-white font-bold rounded focus:outline-none focus:shadow-outline"
+              onClick={getLocation}
+            >
+              Get Location
+            </button>
+
           </div>
         </div>
         <div className="flex items-center justify-between">

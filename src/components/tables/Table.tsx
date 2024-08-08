@@ -24,6 +24,7 @@ const Table: React.FC<TableProps> = ({ tableData }) => {
     col4: data.national_id_number,
     col5: data.latitudinal_location,
     col6: data.longitudinal_location,
+    col7: `${data.latitudinal_location},${data.longitudinal_location}`,
   }));
 
   const columns: GridColDef[] = [
@@ -33,6 +34,25 @@ const Table: React.FC<TableProps> = ({ tableData }) => {
     { field: "col4", headerName: "NIN", width: 225 },
     { field: "col5", headerName: "Latitude", width: 225 },
     { field: "col6", headerName: "Longitude", width: 225 },
+    {
+      field: "col7",
+      headerName: "Location",
+      width: 250,
+      renderCell: (params) => {
+        const [latitude, longitude] = params.value.split(",");
+        const mapsUrl = `https://www.google.com/maps/@${latitude},${longitude},51m`;
+        return (
+          <a
+            href={mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#1a73e8", textDecoration: "underline" }}
+          >
+            View Location
+          </a>
+        );
+      }
+    }
   ];
 
   return (

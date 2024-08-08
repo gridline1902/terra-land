@@ -79,6 +79,25 @@ export default function DataTableWithForm() {
     setIsModalOpen(false);
   }
 
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setFormInputData((prevData) => ({
+            ...prevData,
+            latitudinal_location: position.coords.latitude.toString(),
+            longitudinal_location: position.coords.longitude.toString(),
+          }));
+        },
+        (error) => {
+          console.error("Error fetching location:", error);
+        }
+      );
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  };
+
   return (
     <>
       <Table tableData={documents} />
@@ -91,6 +110,7 @@ export default function DataTableWithForm() {
             formInputData={formInputData}
             handleChange={handleChange}
             handleSubmit={addDocument}
+            getLocation={getLocation}
           />
         </Modal>
       )}
