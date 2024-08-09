@@ -40,7 +40,7 @@ const Table: React.FC<TableProps> = ({ tableData }) => {
       width: 250,
       renderCell: (params) => {
         const [latitude, longitude] = params.value.split(",");
-        const mapsUrl = `https://www.google.com/maps/@${latitude},${longitude},51m`;
+        const mapsUrl = `https://www.google.com/maps/@${latitude},${longitude}`;
         return (
           <a
             href={mapsUrl}
